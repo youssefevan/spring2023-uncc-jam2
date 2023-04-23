@@ -11,7 +11,7 @@ var switch_dist = 68
 var cam_move_dist = 128
 var new_pos : Vector2
 var next_room_dir : String
-var travel_time := 1.0
+var travel_time := .85
 
 func _ready():
 	global_position = Vector2(64, 64)
