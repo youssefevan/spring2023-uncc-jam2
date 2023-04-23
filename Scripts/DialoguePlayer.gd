@@ -9,6 +9,12 @@ var isDialogueActive = false
 func _ready():
 	$NinePatchRect.visible = false
 
+func _physics_process(delta):
+	if isDialogueActive == true:
+		Global.in_dialogue = true
+	else:
+		Global.in_dialogue = false
+
 func play():
 	if isDialogueActive:
 		return

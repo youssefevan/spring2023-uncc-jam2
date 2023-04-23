@@ -20,8 +20,12 @@ func _physics_process(delta):
 		$Animator.playback_active = false
 		self.set_physics_process(false)
 	
-	if !in_hitstun:
-		move_dir = self.global_position.direction_to(Global.player.global_position)
+	if Global.in_dialogue == true:
+		move_dir = Vector2.ZERO
+	else:
+		if !in_hitstun:
+			move_dir = self.global_position.direction_to(Global.player.global_position)
+	
 	
 	velocity = move_dir * speed * delta
 	

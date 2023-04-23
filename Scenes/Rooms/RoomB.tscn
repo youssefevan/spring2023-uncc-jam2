@@ -23,5 +23,7 @@ tile_data = PoolIntArray( 0, 0, 0, 6, 0, 0, 196611, 0, 0, 393216, 0, 0, 393222, 
 position = Vector2( 40, 40 )
 
 [node name="testNPC" parent="." instance=ExtResource( 6 )]
+position = Vector2( 64, 104 )
 
 [node name="DialoguePlayer" parent="testNPC" instance=ExtResource( 5 )]
+dialogue_file = "res://Scripts/npcRoomB.json"
