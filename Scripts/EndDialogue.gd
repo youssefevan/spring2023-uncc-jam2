@@ -9,11 +9,15 @@ var isDialogueActive = false
 
 
 func _ready():
+	
 	$Wake.visible = false
 	$Sleep.visible = false
-	$NinePatchRect.visible = false
+	$NinePatchRect.visible = true
+	
+	
 
 func play():
+	
 	if isDialogueActive:
 		return
 	
@@ -45,6 +49,7 @@ func load_dialogues():
 	var file = File.new()
 	if file.file_exists(dialogue_file):
 		file.open(dialogue_file, file.READ)
+		
 		return parse_json(file.get_as_text())
 
 
