@@ -24,10 +24,15 @@ func _physics_process(delta):
 	if health <= 0:
 		die()
 	
+	animate()
+	
 	move_and_slide(velocity)
 
+func animate():
+	pass
+
 func die():
-	queue_free()
+	call_deferred("free")
 
 func _on_Hurtbox_area_entered(area):
 	if area.is_in_group("Player"):
