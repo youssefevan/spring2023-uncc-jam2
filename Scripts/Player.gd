@@ -44,6 +44,18 @@ func _physics_process(delta):
 	check_facing()
 	animate()
 	
+	if health == 3:
+		$HealthBar.frame = 3
+		
+	if health == 2:
+		$HealthBar.frame = 2
+		
+	if health == 1:
+		$HealthBar.frame = 1
+		
+	if health == 0:
+		$HealthBar.frame = 0
+	
 	if health <= 0:
 		die()
 	
