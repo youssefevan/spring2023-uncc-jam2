@@ -12,6 +12,7 @@ var rooms = [
 
 var player : KinematicBody2D
 var switching : bool
+var player_died : bool
 
 func _ready():
 	switching = false

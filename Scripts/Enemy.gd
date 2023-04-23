@@ -16,6 +16,10 @@ func _physics_process(delta):
 	else:
 		speed = 1200
 	
+	if Global.player_died == true:
+		$Animator.playback_active = false
+		self.set_physics_process(false)
+	
 	if !in_hitstun:
 		move_dir = self.global_position.direction_to(Global.player.global_position)
 	
@@ -31,25 +35,25 @@ func _physics_process(delta):
 func animate():
 	var angle = move_dir.angle()
 	var rad_angle = rad2deg(angle)
-	
-	if rad_angle > -22.5 and rad_angle <= 22.5:
-		$Animator.play("East")
-	if rad_angle > 22.5 and rad_angle <= 67.5:
-		$Animator.play("SouthEast")
-	if rad_angle > 67.5 and rad_angle <= 112.5:
-		$Animator.play("South")
-	if rad_angle > 112.5 and rad_angle <= 157.5:
-		$Animator.play("SouthWest")
-	
-	if rad_angle < -22.5 and rad_angle >= -65.7:
-		$Animator.play("NorthEast")
-	if rad_angle < -65.7 and rad_angle >= -112.5:
-		$Animator.play("North")
-	if rad_angle < -112.5 and rad_angle >= -157.5:
-		$Animator.play("NorthWest")
-	
-	if rad_angle < -157.5 or rad_angle > 157.5:
-		$Animator.play("West")
+	if !in_hitstun:
+		if rad_angle > -22.5 and rad_angle <= 22.5:
+			$Animator.play("East")
+		if rad_angle > 22.5 and rad_angle <= 67.5:
+			$Animator.play("SouthEast")
+		if rad_angle > 67.5 and rad_angle <= 112.5:
+			$Animator.play("South")
+		if rad_angle > 112.5 and rad_angle <= 157.5:
+			$Animator.play("SouthWest")
+		
+		if rad_angle < -22.5 and rad_angle >= -65.7:
+			$Animator.play("NorthEast")
+		if rad_angle < -65.7 and rad_angle >= -112.5:
+			$Animator.play("North")
+		if rad_angle < -112.5 and rad_angle >= -157.5:
+			$Animator.play("NorthWest")
+		
+		if rad_angle < -157.5 or rad_angle > 157.5:
+			$Animator.play("West")
 	
 
 func die():

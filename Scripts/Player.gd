@@ -9,11 +9,15 @@ var facing : String
 var attacking : bool
 var invulnerable : bool
 var in_hitstun : bool
+var anim_wait : bool
 
 var health : int
 
 func _ready():
 	Global.player = self
+	Global.player_died = false
+	detect_input = true
+	speed = 2500
 	
 	health = 3
 	
@@ -22,6 +26,7 @@ func _ready():
 	facing = "south"
 	attacking = false
 	invulnerable = false
+	anim_wait = false
 	
 	$Sword.visible = false
 	$Sword/Hitbox/Collider.disabled = true
@@ -84,7 +89,7 @@ func check_facing():
 		facing = "south_east"
 
 func animate():
-	if attacking == false:
+	if attacking == false and anim_wait == false:
 		if input == Vector2.ZERO:
 			match facing:
 				"north":
@@ -198,4 +203,11 @@ func show_health_bar():
 	$HealthBar.visible = false
 
 func die():
-	pass
+	Global.player_died = true
+	detect_input = false
+	input = Vector2.ZERO
+	speed = 0
+	anim_wait = false
+	yield(get_tree().create_timer(0.5), "timeout")
+	anim_wait = true
+	$Animator.play("Die")
