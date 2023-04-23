@@ -33,6 +33,7 @@ func _ready():
 	$HealthBar.visible = false
 
 func _physics_process(delta):
+	
 	if Global.switching == true:
 		velocity = Vector2.ZERO
 	
