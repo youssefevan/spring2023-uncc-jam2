@@ -30,10 +30,9 @@ func _input(event):
 func next_line():
 	currentDialogue += 1
 	if currentDialogue >= len(dialogues):
-		currentDialogue = -1
-		$Timer.start()
-		$NinePatchRect.visible = false
-		
+		isDialogueActive = false
+		$Wake.visible = true
+		$Sleep.visible = true
 		return
 	
 	$NinePatchRect/Message.text = dialogues[currentDialogue]["text"]
