@@ -10,7 +10,7 @@ font_path = "res://Themes/Early GameBoy.ttf"
 size = 7
 font_data = SubResource( 1 )
 
-[node name="DialoguePlayer" type="CanvasLayer"]
+[node name="EndDialogue" type="CanvasLayer"]
 script = ExtResource( 2 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
