@@ -8,6 +8,8 @@ var room_e = preload("res://Scenes/Rooms/RoomE.tscn")
 var room_f = preload("res://Scenes/Rooms/RoomF.tscn")
 var room_g = preload("res://Scenes/Rooms/RoomG.tscn")
 var room_h = preload("res://Scenes/Rooms/RoomH.tscn")
+var room_i = preload("res://Scenes/Rooms/RoomI.tscn")
+var room_n = preload("res://Scenes/Rooms/RoomN.tscn")
 
 var rooms = [
 	room_a,
@@ -17,7 +19,9 @@ var rooms = [
 	room_e,
 	room_f,
 	room_g,
-	room_h
+	room_h,
+	room_i,
+	room_n
 ]
 
 var player : KinematicBody2D
