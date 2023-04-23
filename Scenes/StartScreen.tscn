@@ -5,12 +5,15 @@
 [ext_resource path="res://Sprites/titlescsreen.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/StartScreen.gd" type="Script" id=4]
 
-[sub_resource type="Theme" id=1]
-
 [sub_resource type="DynamicFont" id=2]
+size = 10
 font_data = ExtResource( 1 )
 
+[sub_resource type="Theme" id=1]
+default_font = SubResource( 2 )
+
 [node name="StartScreen" type="Node2D"]
+position = Vector2( 0, 1 )
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -19,19 +22,20 @@ texture = ExtResource( 3 )
 
 [node name="Start" type="Button" parent="."]
 margin_left = 42.0
-margin_top = 40.0
+margin_top = 57.0
 margin_right = 86.0
-margin_bottom = 54.0
+margin_bottom = 71.0
 theme = ExtResource( 2 )
 text = "Start"
 
-[node name="Title" type="RichTextLabel" parent="."]
-margin_left = 24.0
-margin_top = 16.0
-margin_right = 104.0
-margin_bottom = 40.0
+[node name="Title" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 12.0
+margin_right = 129.0
+margin_bottom = 41.0
 theme = SubResource( 1 )
-custom_fonts/normal_font = SubResource( 2 )
-text = "Title"
+text = "Winding
+Woods"
+align = 1
 
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
