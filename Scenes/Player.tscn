@@ -8,8 +8,9 @@
 [sub_resource type="CircleShape2D" id=2]
 radius = 7.0
 
-[sub_resource type="CircleShape2D" id=34]
-radius = 5.0
+[sub_resource type="CapsuleShape2D" id=36]
+radius = 4.0
+height = 6.0
 
 [sub_resource type="Animation" id=29]
 resource_name = "AttackE"
@@ -692,7 +693,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=35]
-extents = Vector2( 5, 5 )
+extents = Vector2( 5, 6 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -722,8 +723,7 @@ vframes = 8
 frame = 3
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2 )
-shape = SubResource( 34 )
+shape = SubResource( 36 )
 
 [node name="Animator" type="AnimationPlayer" parent="."]
 anims/AttackE = SubResource( 29 )
