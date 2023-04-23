@@ -6,7 +6,11 @@ var dialogues = []
 var currentDialogue = -1
 var isDialogueActive = false
 
+
+
 func _ready():
+	$Wake.visible = false
+	$Sleep.visible = false
 	$NinePatchRect.visible = false
 
 func play():
