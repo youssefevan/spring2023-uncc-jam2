@@ -25,6 +25,7 @@ func _ready():
 	
 	$Sword.visible = false
 	$Sword/Hitbox/Collider.disabled = true
+	$HealthBar.visible = false
 
 func _physics_process(delta):
 	if Global.switching == true:
@@ -168,8 +169,8 @@ func _on_Hurtbox_area_entered(area):
 func get_hurt(dir_to_enemy):
 	var hitstun_time = 0.5
 	hit_anim()
+	show_health_bar()
 	health -= 1
-	print(health)
 	detect_input = false
 	in_hitstun = true
 	invulnerable = true
@@ -191,5 +192,10 @@ func hit_anim():
 	yield(get_tree().create_timer(.1), "timeout")
 	$Sprite.visible = true
 
+func show_health_bar():
+	$HealthBar.visible = true
+	yield(get_tree().create_timer(1), "timeout")
+	$HealthBar.visible = false
+
 func die():
-	print("die")
+	pass

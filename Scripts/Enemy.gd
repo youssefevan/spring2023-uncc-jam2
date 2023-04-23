@@ -31,7 +31,6 @@ func _physics_process(delta):
 func animate():
 	var angle = move_dir.angle()
 	var rad_angle = rad2deg(angle)
-	print(rad_angle)
 	
 	if rad_angle > -22.5 and rad_angle <= 22.5:
 		$Animator.play("East")
