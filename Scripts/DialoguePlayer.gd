@@ -17,6 +17,7 @@ func play():
 	
 	turn_off_the_player()
 	isDialogueActive = true
+	self.visible = true
 	$NinePatchRect.visible = true
 	#currentDialogue = -1
 	next_line()
