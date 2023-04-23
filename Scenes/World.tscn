@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Rooms/RoomA.tscn" type="PackedScene" id=5]
+
+[node name="World" type="Node2D"]
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+player_nodepath = NodePath("../Player")
+camera_nodepath = NodePath("../Camera")
+starting_room_nodepath = NodePath("RoomA")
+
+[node name="RoomA" parent="GameManager" instance=ExtResource( 5 )]
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 64, 64 )
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 64, 64 )
+current = true
+script = ExtResource( 2 )
+player_nodepath = NodePath("../Player")
+
+[connection signal="room_switch" from="Camera" to="GameManager" method="_on_Camera_room_switch"]
