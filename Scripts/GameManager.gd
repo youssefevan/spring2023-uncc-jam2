@@ -29,6 +29,7 @@ func _physics_process(delta):
 func _on_Camera_room_switch(next_room_dir):
 	Global.switching = true
 	player.detect_input = false
+	player.set_physics_process(false)
 	
 	if next_room_dir == current_room.next_room_direction and current_room.progress_room != null:
 		next_room = current_room.progress_room.instance()
@@ -54,7 +55,8 @@ func _on_Camera_room_switch(next_room_dir):
 	previous_room = current_room
 	current_room = next_room
 	
-	previous_room.queue_free()
+	previous_room.call_deferred("free")
 	
-	player.detect_input = true
 	Global.switching = false
+	player.detect_input = true
+	player.set_physics_process(true)

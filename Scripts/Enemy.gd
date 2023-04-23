@@ -29,7 +29,10 @@ func _physics_process(delta):
 	move_and_slide(velocity)
 
 func animate():
-	pass
+	var angle = move_dir.angle()
+	var rad_angle = rad2deg(angle)
+	print(rad_angle)
+	
 
 func die():
 	call_deferred("free")

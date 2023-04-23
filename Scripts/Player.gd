@@ -27,6 +27,9 @@ func _ready():
 	$Sword/Hitbox/Collider.disabled = true
 
 func _physics_process(delta):
+	if Global.switching == true:
+		velocity = Vector2.ZERO
+	
 	if detect_input == true and attacking == false:
 		input = get_input()
 	elif detect_input == false and in_hitstun == false:
@@ -157,7 +160,7 @@ func set_active(active):
 	set_process_input(active)
 
 func _on_Hurtbox_area_entered(area):
-	if !invulnerable and !in_hitstun:
+	if !invulnerable and !in_hitstun and Global.switching == false:
 		if area.is_in_group("Enemy"):
 			var dir_to_enemy = self.global_position.direction_to(area.global_position)
 			get_hurt(dir_to_enemy)
