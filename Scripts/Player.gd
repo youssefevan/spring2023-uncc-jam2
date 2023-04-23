@@ -53,6 +53,9 @@ func _physics_process(delta):
 	check_facing()
 	animate()
 	
+	if Global.in_dialogue == true:
+		health = 3
+	
 	if health == 3:
 		$HealthBar.frame = 3
 		
