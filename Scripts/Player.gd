@@ -194,7 +194,7 @@ func hit_anim():
 
 func show_health_bar():
 	$HealthBar.visible = true
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(1.2), "timeout")
 	$HealthBar.visible = false
 
 func die():
