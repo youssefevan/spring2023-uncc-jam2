@@ -38,3 +38,6 @@ margin_right = 117.0
 margin_bottom = 64.0
 theme = ExtResource( 4 )
 text = "rest"
+
+[connection signal="pressed" from="EndDialogue/Wake" to="." method="_on_Wake_pressed"]
+[connection signal="pressed" from="EndDialogue/Sleep" to="." method="_on_Sleep_pressed"]
