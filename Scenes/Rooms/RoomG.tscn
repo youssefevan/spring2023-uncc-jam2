@@ -27,3 +27,4 @@ position = Vector2( 32, 64 )
 
 [node name="DialoguePlayer" parent="testNPC" instance=ExtResource( 1 )]
 visible = false
+dialogue_file = "res://Scripts/npcRoomG.json"
