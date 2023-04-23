@@ -9,3 +9,9 @@ var rooms = [
 	room_b,
 	room_c
 ]
+
+var player : KinematicBody2D
+var switching : bool
+
+func _ready():
+	switching = false

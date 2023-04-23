@@ -13,6 +13,8 @@ var in_hitstun : bool
 var health : int
 
 func _ready():
+	Global.player = self
+	
 	health = 3
 	
 	in_hitstun = false
@@ -106,7 +108,7 @@ func animate():
 
 func attack():
 	attacking = true
-	
+	input = Vector2.ZERO
 	match facing:
 			"north":
 				$Animator.play("AttackN")
@@ -150,7 +152,7 @@ func _on_Hurtbox_area_entered(area):
 
 func get_hurt(dir_to_enemy):
 	var hitstun_time = 0.5
-	
+	hit_anim()
 	health -= 1
 	print(health)
 	detect_input = false
@@ -162,6 +164,17 @@ func get_hurt(dir_to_enemy):
 	in_hitstun = false
 	invulnerable = false
 	detect_input = true
+
+func hit_anim():
+	$Sprite.visible = false
+	yield(get_tree().create_timer(.1), "timeout")
+	$Sprite.visible = true
+	yield(get_tree().create_timer(.1), "timeout")
+	$Sprite.visible = false
+	yield(get_tree().create_timer(.1), "timeout")
+	$Sprite.visible = true
+	yield(get_tree().create_timer(.1), "timeout")
+	$Sprite.visible = true
 
 func die():
 	print("die")
