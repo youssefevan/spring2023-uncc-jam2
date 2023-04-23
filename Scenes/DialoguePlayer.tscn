@@ -11,6 +11,7 @@ size = 7
 font_data = SubResource( 1 )
 
 [node name="DialoguePlayer" type="CanvasLayer"]
+layer = 6
 script = ExtResource( 2 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
