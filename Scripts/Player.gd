@@ -69,9 +69,6 @@ func _physics_process(delta):
 	if health == 0:
 		$HealthBar.frame = 0
 	
-	if health <= 0:
-		die()
-	
 	move_and_slide(velocity)
 
 func check_facing():
@@ -176,10 +173,13 @@ func _on_Hurtbox_area_entered(area):
 			get_hurt(dir_to_enemy)
 
 func get_hurt(dir_to_enemy):
+	health -= 1
+	if health <= 0:
+		die()
+	
 	var hitstun_time = 0.5
 	hit_anim()
 	show_health_bar()
-	health -= 1
 	detect_input = false
 	in_hitstun = true
 	invulnerable = true
