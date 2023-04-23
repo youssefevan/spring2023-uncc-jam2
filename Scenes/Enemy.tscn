@@ -4,8 +4,8 @@
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=15]
-radius = 5.0
-height = 4.0
+radius = 4.0
+height = 6.0
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 5, 7 )
